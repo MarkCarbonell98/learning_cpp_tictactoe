@@ -25,7 +25,7 @@ int checkField(unsigned theMove, vector<int> theVector, vector<int> hisOwnVector
     // bool check1 = false, check2 = false, check3 = false;
 
 
-    while(theMove > 9 || theMove == 0) {
+    while((theMove > 9 || theMove == 0) || (std::find(theVector.begin(), theVector.end(), theMove) != theVector.end()) || (std::find(hisOwnVector.begin(), hisOwnVector.end(), theMove) != hisOwnVector.end())) {
         theMove = NULL;
         cout << "The number you entered is incorrect, try again" << endl;
         cin >> theMove;
@@ -33,24 +33,30 @@ int checkField(unsigned theMove, vector<int> theVector, vector<int> hisOwnVector
         //     check1 = true;
         // }
     }
-
-    while(std::find(theVector.begin(), theVector.end(), theMove) != theVector.end()) {
-        theMove = NULL;
-        cout << "The field has already been taken, choose another one" << endl;
-        cin >> theMove;
-        // if(std::find(theVector.begin(), theVector.end(), theMove) != theVector.end()) {
-        //     check2 = true;
-        // }
+    
+    if((theMove > 9 || theMove == 0) && (std::find(theVector.begin(), theVector.end(), theMove) != theVector.end()) && (std::find(hisOwnVector.begin(), hisOwnVector.end(), theMove) != hisOwnVector.end())) {
+        hisOwnVector.push_back(theMove);
+    } else {
+        checkField(theMove, theVector, hisOwnVector);
     }
 
-    while(std::find(hisOwnVector.begin(), hisOwnVector.end(), theMove) != hisOwnVector.end()) {
-        theMove = NULL;
-        cout << "You already played in that field, please choose another one" << endl;
-        cin >> theMove;
-        // if(std::find(hisOwnVector.begin(), hisOwnVector.end(), theMove) != hisOwnVector.end()) {
-        //     check3 = true;
-        // }
-    }
+    // while(std::find(theVector.begin(), theVector.end(), theMove) != theVector.end()) {
+    //     theMove = NULL;
+    //     cout << "The field has already been taken, choose another one" << endl;
+    //     cin >> theMove;
+    //     // if(std::find(theVector.begin(), theVector.end(), theMove) != theVector.end()) {
+    //     //     check2 = true;
+    //     // }
+    // }
+
+    // while(std::find(hisOwnVector.begin(), hisOwnVector.end(), theMove) != hisOwnVector.end()) {
+    //     theMove = NULL;
+    //     cout << "You already played in that field, please choose another one" << endl;
+    //     cin >> theMove;
+    //     // if(std::find(hisOwnVector.begin(), hisOwnVector.end(), theMove) != hisOwnVector.end()) {
+    //     //     check3 = true;
+    //     // }
+    // }
 
     // if(check1 && check2 && check3) {
     //     hisOwnVector.push_back(theMove);
