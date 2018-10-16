@@ -60,7 +60,7 @@ bool checkWinner(vector<int> firstVector, vector<int> secondVector, vector<int> 
     for(int i = 0; i < firstVector.size(); i++) {
         for(int j = 0; j < theBoard.size(); j++) {
             if(firstVector[i] == theBoard[j]) {
-
+                
             }
         }
     }
