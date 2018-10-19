@@ -33,12 +33,13 @@ int checkField(unsigned theMove, vector<int> theVector, vector<int> hisOwnVector
         //     check1 = true;
         // }
     }
+
     
-    if((theMove > 9 || theMove == 0) && (std::find(theVector.begin(), theVector.end(), theMove) != theVector.end()) && (std::find(hisOwnVector.begin(), hisOwnVector.end(), theMove) != hisOwnVector.end())) {
-        hisOwnVector.push_back(theMove);
-    } else {
-        checkField(theMove, theVector, hisOwnVector);
-    }
+    // if((theMove > 9 || theMove == 0) && (std::find(theVector.begin(), theVector.end(), theMove) != theVector.end()) && (std::find(hisOwnVector.begin(), hisOwnVector.end(), theMove) != hisOwnVector.end())) {
+    //     hisOwnVector.push_back(theMove);
+    // } else {
+    //     checkField(theMove, theVector, hisOwnVector);
+    // }
 
     // while(std::find(theVector.begin(), theVector.end(), theMove) != theVector.end()) {
     //     theMove = NULL;
@@ -91,6 +92,7 @@ int tictactoe() {
     cout << "welcome to the Tic Tac Toe C++ Game!" << endl;
     cout << "Player 1, please enter a number between 1 and 9 to begin, the board looks like this: \n1,2,3\n4,5,6\n7,8,9\n" << endl;
     cin >> move;
+    movesPlayer1.push_back(move);
     checkField(move, movesPlayer2, movesPlayer1);
     // movesPlayer1.push_back(move);
     player1 = !player1;
@@ -99,6 +101,7 @@ int tictactoe() {
         if(!player1) {
             cout << "player two, its your turn to play" << endl;
             cin >> move;
+            movesPlayer2.push_back(move);
             checkField(move, movesPlayer1, movesPlayer2);
             // movesPlayer2.push_back(move);
             if (checkWinner(movesPlayer2)) {
@@ -110,6 +113,7 @@ int tictactoe() {
         } else {
             cout << "player one, its your turn to play" << endl;
             cin >> move;
+            movesPlayer1.push_back(move);
             checkField(move, movesPlayer2, movesPlayer1);
             // movesPlayer1.push_back(move);
             if (checkWinner(movesPlayer1)) {
