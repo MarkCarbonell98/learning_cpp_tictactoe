@@ -217,18 +217,18 @@ int countChars() {
 }
 
 int main() {
-    // basics();
-    // listAllPrimes(100);
-    // eingabe();
-    // nameSpacing();
-    // tryingVectors();
-    // deepVectors();
-    // pointers();
-    // pointersDeeper();
-    // quiz();
-    // warnings();
-    // definePrimal();
+    basics();
+    listAllPrimes(100);
+    eingabe();
+    nameSpacing();
+    tryingVectors();
+    deepVectors();
+    pointers();
+    pointersDeeper();
+    quiz();
+    warnings();
+    definePrimal();
     countChars();
-    // testingDoubles();
+    testingDoubles();
     return 0;
 }
